@@ -1,0 +1,185 @@
+
+
+// Problem Statement
+// A string S is said to be beautiful if it is the lexicographically minimum string among all its cyclic rotations. Further, a string S is said to be unique if none of its cyclic rotations are equal to the string itself.
+
+// For example:
+// - "abb" is both beautiful and unique
+// - "abba" is unique but not beautiful as "aabb" is a lexicographically smaller cyclic rotation.
+// - "abab" is beautiful but not unique as a cyclic left shift by 2 results in the same string.
+// - "baba" is neither beautiful nor unique.
+
+// Consider the set of all strings formed using the 26 lowercase English alphabet, which are beautiful and unique, and have a length at most N. Let all these strings be written down in lexicographical order. You need to answer the following problem:
+
+// What is the Kth string in the sequence after string T?
+
+// Note: A string S is considered lexicographically smaller than another string T if it is either a proper prefix of T or it contains a smaller character at the first index of difference between S and T.
+// Input
+// The first line contains a single integer N.
+// The second line contains a string T followed by an integer K.
+
+// Constraints:
+// 1 ≤ N ≤ 50
+// 1 ≤ length(T) ≤ N
+// 1 ≤ K ≤ 1015
+// Output
+// Print a single string, the Kth string after T in the sequence. If the sequence does not contain enough strings, print -1.
+
+
+// Sample Input 1:
+// 3
+// abc 7
+// Sample Output 1:
+// abj
+
+// Sample Input 2:
+// 4
+// yyzz 3
+// Sample Output 2:
+// yzzz
+
+// Explanation 2:
+
+// The sequence from yyzz in second sample is ... - > yyzz - > yz - > yzz - > yzzz ... So, the answer is yzzz.
+
+
+
+// Bodega Orders (Public Contest: July 2022)
+// Time Limit: 3 sec
+// Memory Limit: 128000 kB
+// Problem Statement
+// In his free time, Bodega built a large collection of robots using his deep intellect. He wanted to show off his robots, so he organized an exhibition for it. He placed his robots along the number line, each of them at a specific position and assigned them each some velocity. If the velocity is negative, it means that the robot will move in the negative direction with speed equal to the absolute value of velocity, whereas if the velocity is positive, it will move in the positive direction.
+
+// However, just as the exhibition was about to start, he realized that he had made a huge mistake! It is possible that some robots may collide on the number line, and his exhibition might be a flop. Well, as there is not enough time to fix the robots, all he can do now is to remove at most M robots from his exhibition. Your task is to help Bodega choose at most M robots to remove so that the time of the first collision between any two robots is maximized.
+
+// Let T be the time of the first collision after the robots have been removed. Print ⌊T×105⌋, where ⌊x⌋ denotes the greatest integer less than or equal to x. If there will never be any collisions, print -1 instead.
+// Input
+// The first line contains two space-separated integers N and M – the number of robots and the maximum number of robots to remove, respectively.
+// Then N lines follow, the ith line containing two integers Xi and Vi – the position and velocity of the ith robot.
+
+// Constraints:
+// 2 ≤ N ≤ 5×104
+// 1 ≤ M ≤ N - 1
+// 0 ≤ Xi ≤ 108
+// -105 ≤ Vi ≤ 105
+// Vi ≠ 0
+// Output
+// Print a single integer, ⌊T×105⌋ where T is the time of the first collision between any robots. If the robots will never collide, print -1 instead.
+// Example
+// Sample Input 1:
+// 2 1
+// 1 1
+// 5 -1
+
+// Sample Output 1:
+// -1
+
+// Sample Explanation 1:
+// Even if we do not remove any robots, there will be no collision as the robots are moving in opposite directions.
+
+// Sample Input 2:
+// 4 1
+// 1 1
+// 2 2
+// 3 -2
+// 4 -3
+
+// Sample Output 2:
+// 66666
+
+// Sample Explanation 2:
+// It is optimal to remove the robot at position 2. Then, the first collision will occur between the robot initially at position 1 and the robot initially at position 3, at time 2/3 = 0.666... units.
+
+
+
+// Grid Walk (Public Contest: July 2022)
+// Time Limit: 2 sec
+// Memory Limit: 128000 kB
+// Problem Statement
+// Bodega is trying to go from point (0, 0) to (X, Y). In one move, Bodega can perform one of the following operations:
+// 1. Go from (x, y) → (x', y), if x | x' = x' and x ≠ x'.
+// 2. Go from (x, y) → (x, y'), if y | y' = y' and y ≠ y'.
+// where "|" denotes the bitwise OR operator.
+
+// However, a total of N points in the plane are blocked, so Bodega cannot go to those points. You are given the positions of these N blocked points. Find the number of different paths that Bodega can take modulo 998244353.
+// Input
+// The first line consists of a single integer T – the number of test cases. Then T test cases follow:
+// The first line of each test case contains two integers X and Y, where (X, Y) denotes Bodega's destination.
+// The second line contains a single integer N.
+// Then N lines follow, the ith line containing two integers Xi and Yi, where (Xi, Yi) denotes a blocked point.
+
+// Constraints:
+// 0 ≤ X, Y ≤ 1016
+// 0 ≤ N ≤ 1000
+// 0 ≤ Xi ≤ X
+// 0 ≤ Yi ≤ Y
+// Output
+// Print T lines, the ith line containing the answer for the ith test case.
+// Example
+// Sample input 1:
+// 1
+// 2 2
+// 1
+// 2 0
+
+// Sample output 1:
+// 1
+
+// Explanation:
+// There are only two possible paths if not considering the blocked points, (0,0) → (2,0) → (2,2) and (0,0) → (0,2) → (2,2). As the point (2, 0) is blocked, this leaves only one possible path.
+
+// Sample Input 2:
+// 1
+// 3 3
+// 2
+// 1 2
+// 2 3
+
+// Sample Output 2:
+// 26
+
+
+// Amicable Substrings (Public Contest: July 2022)
+// Time Limit: 2 sec
+// Memory Limit: 128000 kB
+// Problem Statement
+// A string is called amicable if there is no character in the string which appears exactly once. For example, "abcccba" is amicable, whereas "abcba" is not amicable as the character 'c' appears only once. Your task is to find the total number of amicable substrings of a given string S.
+
+// Note:
+// Two substrings are considered different if either their starting position or their ending position are different, even if their contents may be equal.
+// Input
+// The first line consists of a single integer T – the number of test cases.
+// Then T lines follow, the ith line containing a string S for the ith test case.
+
+// Constraints:
+// 1 ≤ T ≤ 105
+// The sum of lengths of strings across all test cases is less than or equal to 105.
+// Output
+// For each test case, print a single line containing a single integer – the number of amicable substrings of string S.
+// Example
+// Sample Input 1:
+// 3
+// abbac
+// bvb
+// sasa
+
+// Sample Output 1:
+// 2
+// 0
+// 1
+
+// Explanation:
+// For the first test case, the amicable substrings are "bb" and "abba".
+// For the second test case, there are no amicable substrings.
+// For the third test case, there is only one amicable substring "sasa".
+
+// Sample Input 2:
+// 3
+// meeoowww
+// idqaislac
+// eommrejv
+
+// Sample Output 2:
+// 10
+// 0
+// 1

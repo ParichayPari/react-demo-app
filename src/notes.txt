@@ -1,0 +1,2 @@
+useState(props.title);   // the hooks function must be called inside of a react component function nor be called inside any nestetd component.
+// useState hook returns an array where the first variable is the the value itself and the 2nd element is the updating function
