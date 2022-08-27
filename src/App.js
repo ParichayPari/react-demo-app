@@ -1,3 +1,4 @@
+import React from 'react';
 import Expenses from './components/Expenses/Expenses';
 
 function App() {
@@ -28,10 +29,10 @@ function App() {
   ];
 
   return (
-    <div>
-      <h2>Let's get started!</h2>
+    <React.Fragment>
+      <h2>Let's get started now!</h2>
       <Expenses items={expenses} />
-    </div>
+    </React.Fragment>
   );
 }
 export default App;
